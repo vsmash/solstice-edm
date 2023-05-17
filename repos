@@ -1,0 +1,4 @@
+origins=("origin")
+branches=("develop")
+production="origin"
+master="main"
