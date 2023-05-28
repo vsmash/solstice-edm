@@ -1,0 +1,32 @@
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+ }
+ // Small device max-width
+@mixin sm-max {
+    @media (max-width: #{$screen-sm - 1}) {
+        @content;
+    }
+}
+ 
+// Tiny devices
+@mixin sm {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+ }
+ // Tiny device max-width
+@mixin sm-max {
+    @media (max-width: #{$screen-sm - 1}) {
+        @content;
+    }
+}
+
+ // Custom devices
+@mixin rwd($screen) {
+    @media (min-width: $screen+'px') {
+        @content;
+    }
+ }

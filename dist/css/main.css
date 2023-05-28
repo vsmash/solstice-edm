@@ -1,0 +1,148 @@
+/* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
+body {
+  padding: 0;
+  font-weight: normal;
+  margin: 0;
+}
+
+.readmore {
+  display: none;
+}
+
+.category {
+  font-family: "Lato, verdana, arial, sans-serif";
+  color: #616161;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  vertical-align: middle;
+  letter-spacing: 3.6px;
+}
+
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+body,
+td {
+  font-family: "Baskerville", Cambria, Times, "Times New Roman";
+  font-size: 16px;
+  line-height: 20px;
+  color: #3c3c3c;
+  margin: 0px;
+}
+
+.featurecopy {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+img {
+  border: none;
+  display: inline-block;
+  color: #000000;
+}
+
+H1 {
+  text-align: inherit;
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-family: "Baskerville", Cambria, serif;
+  font-weight: normal;
+  font-size: 36px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #0FF;
+}
+table.row {
+  background-color: #ff0;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.row > td, table.row th {
+  text-align: center;
+  align-content: center;
+}
+table.wrapper {
+  width: 100%;
+  max-width: 600px;
+  background-color: pink;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+table.wrapper > td, table.wrapper th {
+  text-align: center;
+  align-content: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.block {
+  width: 50%;
+}
+
+@media only screen and (max-width: 599px) {
+  html {
+    -webkit-text-size-adjust: none;
+  }
+  .wrapper {
+    width: 100%;
+    width: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .fl {
+    width: 100%;
+    width: 100% !important;
+    float: left;
+    height: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .mob_none {
+    display: none !important;
+  }
+  .block {
+    display: block !important;
+    width: 100% !important;
+  }
+  .leaderboard_padding {
+    padding: 10px 10px !important;
+  }
+  .footer {
+    text-align: center !important;
+  }
+}
+/* Really small screens styling starts here */
+@media only screen and (max-width: 400px) {
+  .news_reduce_font_size {
+    font-size: 12px !important;
+  }
+  .news_watch_reduce_font_size {
+    font-size: 10px !important;
+  }
+  .w195 {
+    width: 195px !important;
+  }
+}

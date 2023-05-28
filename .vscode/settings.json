@@ -1,3 +1,9 @@
 {
-    "workbench.colorTheme": "Material Theme Ocean"
-}
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "liveServer.settings.root": "/dist",
+      "liveServer.settings.donotVerifyTags": true,
+      "liveServer.settings.port": 5507
+    }
