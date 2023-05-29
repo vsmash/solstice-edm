@@ -117,14 +117,14 @@ const img2col = `
 const storycopy = `
 <tr>
   <td class="storycopy">
-      <multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline>
+  <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
 `;
 const featuredcopy = `
 <tr>
-  <td class="featuredcopy"><multiline>
-      Featured story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline>
+  <td class="featuredcopy"><div class="multiline-style featuredcopy"><multiline>
+      Featured story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
 `;
@@ -150,7 +150,7 @@ const twocolumnstory = `
           {{category}}
           {{icon}}
           <tr><td><h2><singleline>{{headline}}</singleline></h2></td></tr>
-          <tr><td><multiline>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></td></tr>
+          <tr><td><div class="multiline-style"><multiline>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div></td></tr>
       </table>
   </td>
 </tr>
@@ -334,9 +334,9 @@ const presspatron = centre(`
               </a>
           </h1>
           <img editable="true" src="images/david-eccles.png" width="100" align="left">
-          <p class="font_size_15 line_height_20">
+          <p class="font_size_15 line_height_20"><div class="multiline-style">
               <multiline>A trusted source is one key to uncovering important stories. Help us remain
-                  your trusted source of information by donating to InDaily.</multiline>
+                  your trusted source of information by donating to InDaily.</multiline></div>
           </p>
       </div>
   </td>
