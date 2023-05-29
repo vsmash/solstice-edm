@@ -1,0 +1,65 @@
+{
+  "name": "solstice-edm",
+  "version": "1.0.0",
+  "description": "edm html creator for indaily",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "dev",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsmash/solstice-edm.git"
+  },
+  "keywords": [
+    "edm",
+    "email"
+  ],
+  "author": "Mark Pottie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsmash/solstice-edm/issues"
+  },
+  "homepage": "https://github.com/vsmash/solstice-edm#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "del": "^6.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-inline-source": "^4.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-minify-inline": "^1.1.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-purgecss": "^4.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-rollup": "^2.17.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "jquery": "^3.5.1",
+    "minimist": "^1.2.8",
+    "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "caniuse-lite": "^1.0.30001450",
+    "gulp-javascript-obfuscator": "^1.1.6",
+    "gulp-strip-comments": "^2.5.2",
+    "resolve": "^1.19.0",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
