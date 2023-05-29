@@ -36,7 +36,7 @@ const sassFiles = './src/sass/**/*.scss';
 // process the index page and manifest info
 const htmldev = () =>
   gulp
-    .src(["src/index.html"])
+    .src(["src/index.html","src/test.html","src/temp.html"])
     .pipe(inlinesource({ rootpath: path.resolve("dist") }))
     .pipe(gulp.dest("dist"));
 
@@ -77,7 +77,7 @@ const sassdev = () =>
 // prod
 const html = () =>
   gulp
-    .src("src/index.html")
+    .src(["src/index.html","src/test.html","src/temp.html"])
     .pipe(
       htmlmin({
         collapseWhitespace: true,

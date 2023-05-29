@@ -65,32 +65,50 @@ H1 {
   font-family: "Baskerville", Cambria, serif;
   font-weight: normal;
   font-size: 36px;
+  line-height: 40px;
+}
+H1.todaysheadlines {
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h9 {
+  font-size: 24px;
+  padding-bottom: 15px;
+}
+
+.advertisement {
+  font-size: 9px;
+  color: #000000;
 }
 
 table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
-  background-color: #0FF;
+  background-color: #fff;
 }
 table.row {
-  background-color: #ff0;
+  background-color: #fff;
   border-collapse: collapse;
   width: 100%;
 }
-table.row > td, table.row th {
+table.row td, table.row th {
   text-align: center;
   align-content: center;
+  padding: 0 !important;
 }
 table.wrapper {
   width: 100%;
   max-width: 600px;
-  background-color: pink;
+  background-color: #fff;
   border-collapse: collapse;
   margin: 0 auto;
 }
-table.wrapper > td, table.wrapper th {
-  text-align: center;
+table.wrapper td, table.wrapper th {
+  display: table-cell;
+  text-align: left;
   align-content: center;
 }
 
@@ -100,6 +118,16 @@ table.wrapper > td, table.wrapper th {
 
 .block {
   width: 50%;
+}
+
+.center, centre {
+  text-align: center !important;
+  margin: 0 auto;
+  float: none !important;
+}
+
+.logo_container {
+  background-color: #000000;
 }
 
 @media only screen and (max-width: 599px) {

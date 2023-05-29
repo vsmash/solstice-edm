@@ -56,8 +56,16 @@ img {
 }
 H1{
     text-align: inherit; padding: 0; margin: 0; color:#000000; 
-    font-family: $heading; 
+    font-family: $heading;
     font-weight:normal; font-size:36px;
+    line-height: 40px;
+    &.todaysheadlines{font-size:40px;padding-top:20px;padding-bottom:20px;}
+}
+h9{
+    font-size:24px;padding-bottom:15px;
+}
+.advertisement{
+    font-size: 9px; color: #000000;
 }
 table{
     border-spacing: 0;
@@ -68,9 +76,10 @@ table{
         background-color:$test2;
         border-collapse:collapse;
         width:100%;
-        & > td, th{
+        & td, th{
             text-align:center;
             align-content:center;
+            padding:0 !important;
             }
     }
     &.wrapper{
@@ -79,8 +88,9 @@ table{
         background-color: $test3;
         border-collapse:collapse;
         margin:0 auto;
-        & > td, th{
-            text-align:center;
+        & td, th{
+            display:table-cell;
+            text-align:left;
             align-content:center;
             }
     }
@@ -93,7 +103,14 @@ table{
 .block{
     width:50%;
 }
-
+.center, centre {
+    text-align: center !important;
+    margin: 0 auto;
+    float: none !important;
+}
+.logo_container{
+    background-color: #000000;
+}
 
 @media only screen and (max-width: 599px) {
     html {
