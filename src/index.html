@@ -18,10 +18,10 @@
 			<td>
 				<table class="wrapper" style="background-color:black;">
 					<tr>
-						<td align="center" class="center">
+						<td align="center" class="center"><p>
 							<a href="https://indaily.com.au">
 							<img alt="InDaily - Adelaide Independent News" border="0"
-								class="center" src="images/indaily_logo_mono_rev.png" width="180" /> </a>							
+								class="center" src="images/indaily_logo_mono_rev.png" width="180" /> </a>	</p>						
 						</td>
 					</tr>
                     <tr>
@@ -58,14 +58,14 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <p class="center"
+                            <p class="center footertext" 
                             >
-                            <a href=""
+                            <a href="" class="footerlink"
                                 >Privacy</a>
-                            | <a href=""
+                            | <a href="" class="footerlink"
                                 >Unsubscribe</a>
                         </p>
-                        <p class="center">
+                        <p class="center footertext" style="padding:10px;color:#fff;">
                             &copy; 2023 The New Daily. All rights reserved</p>
 
                         </td>
@@ -81,11 +81,11 @@
                     <tr>
                         <td class="left">
 							<div >
-								<p
+								<p style="color:#bdbdbd;font-family:Helvetica, Arial, sans-serif;font-size:11px;"
 									>
 									You are receiving this email as you are a subscriber to InDaily.<br>
 									Telephone (08) 8224 1600. Email <a href="mailto:indaily@solsticemedia.com.au"
-										>indaily@solsticemedia.com.au</a>
+									style="color:#bdbdbd;">indaily@solsticemedia.com.au</a>
 									<br>
 									This email was sent by Solstice Media. Ground Floor, 165 Grenfell Street Adelaide SA
 									5000.<br>
@@ -222,7 +222,7 @@ const readmore = `
 `;
 const twocolumnstory = `
 <tr>
-    <td class="leftcol block">
+    <td class="leftcol block" valign="top">
         <a href=""><img
         editable="true"
         alt="Image:"
@@ -417,11 +417,12 @@ const fullwidthheading = `
 </div>
 `;
 
-const presspatron = `
+const presspatron = centre(`
+<table style="" class="presspatron">
 <tr valign="top">
-    <td align="center" class="presspatron">
-        <div>
-            <h1 class="font_size_20">
+    <td align="center" stlye="padding:10px">
+        <div style="padding:10px;">
+            <h1>
                 <a href="https://indaily.com.au/support-indaily/?utm_source=EDM%202020&utm_medium=Press%20Patron&utm_campaign=block" >
                     <singleline>We need you to help keep journalism independent and real</singleline>
                 </a>
@@ -434,12 +435,12 @@ const presspatron = `
         </div>
     </td>
 </tr>
-<tr class="button_alignment--align_button_center" >
-    <td align="center" class="align_target padding_bottom_20 padding_left_15>
-        <table border="0" cellpadding="0" cellspacing="0" class="button">
+<tr class="button_alignment--align_button_center " >
+    <td align="center" class="center" style="padding:1px 5px 10px 5px;">
+        <table border="0" align="center" cellpadding="0" cellspacing="0" class="button">
             <tr>
-                <td>
-                    <a href="https://indaily.com.au/support-indaily/?utm_source=EDM%202020&utm_medium=Press%20Patron&utm_campaign=block">
+                <td style="font-size: 12px; background-color: #000000; padding-top: 8px; padding-bottom: 8px; padding-left: 10px;  padding-right: 10px; border-radius: 5px; display: inline-block; color: #ffffff; font-weight: normal; letter-spacing: 1px; font-family: 'Helvetica', Arial, sans-serif; margin-top: 0px; color:#ffffff;">
+                    <a href="https://indaily.com.au/support-indaily/?utm_source=EDM%202020&utm_medium=Press%20Patron&utm_campaign=block" style="color:#ffffff; text-decoration:none; font-weight: bold;">
                         <singleline>Donate here</singleline>
                     </a>
                 </td>
@@ -447,7 +448,8 @@ const presspatron = `
         </table>
     </td>
 </tr>
-`;
+</table>
+`);
 
 const showcase = centre(`
 
