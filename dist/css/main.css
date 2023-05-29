@@ -60,6 +60,7 @@ img {
   border: none;
   display: inline-block;
   color: #000000;
+  max-width: 100%;
 }
 
 .button {
@@ -88,6 +89,19 @@ H1.todaysheadlines {
   font-size: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+h2 {
+  margin: 2px 0 4px 0;
+  font-weight: normal;
+}
+h2 a {
+  color: #000000;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 h9 {
@@ -126,7 +140,7 @@ table.row {
 table.row td, table.row th {
   text-align: center;
   align-content: center;
-  padding: 1px 4px 12px 0;
+  padding: 1px 0 12px 0;
 }
 table.wrapper {
   width: 100%;
@@ -152,8 +166,9 @@ table.presentation td, table.presentation th {
   width: 50%;
 }
 
-.center, centre {
+.center, .centre {
   text-align: center !important;
+  text-align-last: center !important;
   margin: 0 auto;
   float: none !important;
 }
