@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Breve";
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.eot");
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.eot") format("embedded-opentype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.woff2") format("woff2"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.woff") format("woff"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.ttf") format("truetype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.svg#BreveTextBook") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Breve";
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.eot");
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.eot") format("embedded-opentype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.woff2") format("woff2"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.woff") format("woff"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.ttf") format("truetype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.svg#BreveTextBookItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "BreveTitle";
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.eot");
+  src: url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.eot") format("embedded-opentype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.woff2") format("woff2"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.woff") format("woff"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.ttf") format("truetype"), url("https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.svg#BreveTitleSemiBold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
 /* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
 body {
   padding: 0;
@@ -8,6 +29,10 @@ body {
 p {
   text-align: justify;
   text-align-last: left;
+}
+p .spacer {
+  display: none;
+  line-height: 10px;
 }
 
 .readmore {
@@ -80,7 +105,7 @@ H1 {
   padding: 0;
   margin: 0;
   color: #000000;
-  font-family: "Baskerville", Cambria, serif;
+  font-family: "BreveTitle", "Baskerville", Cambria, serif;
   font-weight: normal;
   font-size: 36px;
   line-height: 40px;
@@ -94,6 +119,7 @@ H1.todaysheadlines {
 h2 {
   margin: 2px 0 4px 0;
   font-weight: normal;
+  font-family: "BreveTitle", "Baskerville", Cambria, serif;
 }
 h2 a {
   color: #000000;
@@ -241,14 +267,27 @@ table.presentation td, table.presentation th {
 }
 
 @media only screen and (max-width: 599px) {
+  p .spacer {
+    display: block;
+  }
   html {
     -webkit-text-size-adjust: none;
   }
   .img2col {
     width: 100%;
   }
+  .img2col img {
+    width: 100%;
+  }
   .leftcol img, .rightcol img {
     width: 100%;
+  }
+  .leftcol img.tnf, .rightcol img.tnf {
+    width: 100px;
+  }
+  .leftcol.bottomborder {
+    padding-bottom: 0px !important;
+    border-bottom: 0px solid #000000;
   }
   .evenright {
     padding-left: 0 !important;
