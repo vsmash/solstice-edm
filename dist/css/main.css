@@ -40,7 +40,7 @@ p .spacer {
 }
 
 .category {
-  font-family: "Lato", verdana, arial, sans-serif;
+  font-family: "Breve", "Lato", verdana, arial, sans-serif;
   color: #616161;
   font-size: 13px;
   font-weight: bold;
@@ -69,7 +69,7 @@ a {
 
 body,
 td {
-  font-family: "Baskerville", Cambria, Times, "Times New Roman";
+  font-family: "Breve", "Baskerville", Cambria, Times, "Times New Roman";
   font-size: 16px;
   line-height: 20px;
   color: #3c3c3c;
