@@ -177,6 +177,21 @@ table.presentation td, table.presentation th {
   background-color: #000000;
 }
 
+.bottomborder {
+  padding-bottom: 10px !important;
+  border-bottom: 0.5px solid #000000;
+}
+
+.preheader {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #000;
+}
+.preheader a {
+  color: #000;
+  text-decoration: none;
+}
+
 .footertext {
   padding: 10px;
   font-family: Arial, sans-serif;

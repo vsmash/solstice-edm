@@ -19,6 +19,7 @@ const cssVersion = new Date().getTime();
 const sassFiles = './src/sass/**/*.scss';
 const currentDate = new Date();
 const zip = require('gulp-zip');
+require('./src/indaily_lunchtime.js');
 
 
 
@@ -35,6 +36,8 @@ function buildTemplate(innertemplate, labelname){
     // append to repeater
     return html;
 }
+
+
 
 
 const left = function(content){
@@ -116,14 +119,14 @@ const img2col = `
 `;
 const storycopy = `
 <tr>
-  <td class="storycopy">
+  <td class="storycopy bottomborder">
   <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
 `;
 const featuredcopy = `
 <tr>
-  <td class="featuredcopy"><div class="multiline-style featuredcopy"><multiline>
+  <td class="featuredcopy bottomborder"><div class="multiline-style featuredcopy"><multiline>
       Featured story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
@@ -137,7 +140,7 @@ const readmore = `
 `;
 const twocolumnstory = `
 <tr>
-  <td class="leftcol block" valign="top">
+  <td class="leftcol block bottomborder" valign="top">
       <a href=""><img
       editable="true"
       alt="Image:"
@@ -145,7 +148,7 @@ const twocolumnstory = `
       src="images/story-placeholder.jpg"
       width="290" /></a>
   </td>
-  <td class="rightcol block">
+  <td class="rightcol block bottomborder">
       <table>
           {{category}}
           {{icon}}
@@ -154,7 +157,7 @@ const twocolumnstory = `
       </table>
   </td>
 </tr>
-`
+` 
 const tennewsicon = `
 <tr><td>
   <table border="0"
@@ -202,7 +205,7 @@ const Preheader = `
 const viewonline = left(`
 <div>
   <singleline>
-      <webversion><span>View in browser</span></webversion>
+      <webversion><span class="preheader">View in browser</span></webversion>
   </singleline>
 </div>
 `);
@@ -244,7 +247,7 @@ const midboard = centre(`
 `);
 const Topstories = `
 <tr>
-  <td align="left">
+  <td align="left" class="bottomborder">
   <h2>
       <a class="w100pc mob_only_inline_block"
           href="http://indaily.com.au">
@@ -284,7 +287,7 @@ const mrec = centre(`
 `);
 const twocolumn = `
 <tr>
-  <td>
+  <td class="bottomborder">
       <table class="presentation twocol">
           <tr>
               <td class="leftcol block">
