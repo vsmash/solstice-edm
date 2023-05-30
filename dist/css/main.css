@@ -144,6 +144,10 @@ h9 {
   color: #000000;
 }
 
+.multiline-style {
+  margin-bottom: 20px;
+}
+
 .presspatron {
   background-color: rgb(246, 246, 246);
   border-top: 1px solid #000000;
@@ -236,6 +240,11 @@ table.wrapper td, table.wrapper th {
     padding-right: 15px;
   }
 }
+@media (max-width: 599px) {
+  table.presentation {
+    margin-top: 15px;
+  }
+}
 table.presentation td, table.presentation th {
   padding: 1px 2px 2px 0;
 }
@@ -244,8 +253,7 @@ table.presentation td, table.presentation th {
     padding: 0 0 0 0;
   }
   table.presentation td.bottomborder, table.presentation th.bottomborder {
-    padding: 0 0 40px 0 !important;
-    margin: auto auto 10px auto !important;
+    padding: 0 0 10px 0 !important;
   }
 }
 

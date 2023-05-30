@@ -297,7 +297,6 @@ const twocolumn = `
                       <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
                           </td></tr>
                   </table>
-                  <p class="spacer">&nbsp;</p>
 
               </td>
               <td class="block evenright" align="right" style="padding: 0 0 0 58px;" valign="top">
