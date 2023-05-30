@@ -104,7 +104,9 @@ h9{
     font-size: 9px; color: #000000;
 }
 
-
+.multiline-style{
+    margin-bottom:20px;
+}
 
 .presspatron{
     background-color: rgb(246,246,246);
@@ -192,13 +194,15 @@ table{
 
     }
     &.presentation{
+        @include sm-max{
+            margin-top: 15px;
+        }
         & td, th{
             padding:1px 2px 2px 0;
             @include sm-max{
                 padding:0 0 0 0;
                 &.bottomborder{
-                    padding:0 0 40px 0!important;
-                    margin:auto auto 10px auto !important;
+                    padding:0 0 10px 0!important;
                 }
             }
         }
