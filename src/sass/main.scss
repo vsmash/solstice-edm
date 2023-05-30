@@ -89,10 +89,16 @@ h2{
         line-height: inherit;
     }
 }
-
+.h14_w14{
+    vertical-align: middle;
+}
 h9{
     font-size:24px;padding-bottom:15px;
 }
+.twocolumn{
+    width:242px;
+}
+
 .advertisement{
     font-size: 9px; color: #000000;
 }
@@ -141,6 +147,32 @@ table{
     }
 
 
+}
+.leftcol{
+    padding-right:58px;
+    &.block{
+        width:242px;
+    }
+}
+.rightcol{
+    padding:0 0 0 58px !important;
+    &.img2col{
+        padding:0 0 0 0 !important;
+    }
+    &.block{
+        width:auto;
+        padding:0 0 0 10px !important;
+    }
+    
+}
+.evenleft{
+    padding-right:0 58px 0 0!important;
+}
+.evenright{
+    padding-left:0 0 0 58px !important;
+}
+.hugright{
+    & td{padding-right:0 !important;}
 }
 .left{
     text-align:left;

@@ -104,9 +104,17 @@ h2 a {
   line-height: inherit;
 }
 
+.h14_w14 {
+  vertical-align: middle;
+}
+
 h9 {
   font-size: 24px;
   padding-bottom: 15px;
+}
+
+.twocolumn {
+  width: 242px;
 }
 
 .advertisement {
@@ -156,6 +164,36 @@ table.wrapper td, table.wrapper th {
 }
 table.presentation td, table.presentation th {
   padding: 1px 2px 2px 0;
+}
+
+.leftcol {
+  padding-right: 58px;
+}
+.leftcol.block {
+  width: 242px;
+}
+
+.rightcol {
+  padding: 0 0 0 58px !important;
+}
+.rightcol.img2col {
+  padding: 0 0 0 0 !important;
+}
+.rightcol.block {
+  width: auto;
+  padding: 0 0 0 10px !important;
+}
+
+.evenleft {
+  padding-right: 0 58px 0 0 !important;
+}
+
+.evenright {
+  padding-left: 0 0 0 58px !important;
+}
+
+.hugright td {
+  padding-right: 0 !important;
 }
 
 .left {
