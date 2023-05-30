@@ -218,6 +218,17 @@ table{
     html {
         -webkit-text-size-adjust: none;
     }
+    .img2col{
+        width:100%;
+    }
+    .leftcol, .rightcol{
+        & img{
+            width:100%;
+        }
+    }    
+    .evenright{
+        padding-left:0 !important;
+    }
     .wrapper {
         width: 100%;
         width: 100% !important;
