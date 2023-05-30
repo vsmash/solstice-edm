@@ -1,4 +1,43 @@
 $tdfont: 'Baskerville', Cambria, Times, 'Times New Roman';
-$heading: 'Baskerville', Cambria, serif;
+$heading: 'BreveTitle', 'Baskerville', Cambria, serif;
 $lato: 'Lato', verdana, arial, sans-serif;
 $preheadertext: Arial, sans-serif;
+
+
+@font-face {
+    font-family: 'Breve';
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.eot');
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.eot') format('embedded-opentype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.woff2') format('woff2'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.woff') format('woff'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.ttf') format('truetype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBook.svg#BreveTextBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Breve';
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.eot');
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.eot') format('embedded-opentype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.woff2') format('woff2'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.woff') format('woff'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.ttf') format('truetype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTextBookItalic.svg#BreveTextBookItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'BreveTitle';
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.eot');
+    src: url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.eot') format('embedded-opentype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.woff2') format('woff2'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.woff') format('woff'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.ttf') format('truetype'),
+    url('https://indaily.com.au/wp-content/themes/solstice-common/fonts/BreveTitleSemiBold.svg#BreveTitleSemiBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+ 

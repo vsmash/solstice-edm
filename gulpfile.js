@@ -171,7 +171,7 @@ const tennewsicon = `
           </td>
           <td
               valign="middle">
-              <img src="images/ten_news_first.png" alt="TEN NEWS FIRST">
+              <img src="images/ten_news_first.png" class="tnf" alt="TEN NEWS FIRST">
           </td>
       </tr>
   </table>
@@ -297,6 +297,8 @@ const twocolumn = `
                       <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
                           </td></tr>
                   </table>
+                  <p class="spacer">&nbsp;</p>
+
               </td>
               <td class="block evenright" align="right" style="padding: 0 0 0 58px;" valign="top">
                   <table width="242" class="hugright">
@@ -370,8 +372,8 @@ const inreview = centre(`
               border="0" alt="InReview" />
 `);
 const imageblock = centre(`
-          <img editable="true" src="images/imageblock.png" class="homes" width="600"
-              border="0" alt="InReview" />
+          <img editable="true" src="images/image_block.png" class="homes" width="600"
+              border="0" alt="" />
 `);
 
 
