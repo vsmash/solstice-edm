@@ -6,7 +6,6 @@
 /* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
 body {
     padding: 0; font-weight: normal; margin: 0;
-
 }
 p{
     text-align:justify;
@@ -101,13 +100,12 @@ h2{
 h9{
     font-size:24px;padding-bottom:15px;
 }
-.twocolumn{
-    width:242px;
-}
-
 .advertisement{
     font-size: 9px; color: #000000;
 }
+
+
+
 .presspatron{
     background-color: rgb(246,246,246);
     border-top: 1px solid #000000; border-bottom: 2px solid #000000;
@@ -119,7 +117,44 @@ h9{
         text-align: center;
     }
 }
+.left{
+    text-align:left;
+}
 
+.center, .centre {
+    text-align: center !important;
+    text-align-last:center !important;
+    margin: 0 auto;
+    float: none !important;
+}
+.logo_container{
+    background-color: #000000;
+}
+.preheader{
+    font-family: $preheadertext;
+    font-size:12px;
+    color:#000;
+    & a {
+        color:#000;
+        text-decoration:none;
+    }
+}
+
+.footertext{
+    padding:10px;
+    font-family: $preheadertext;
+    color:#ffffff;
+}
+.footerlink{
+    color:#ffffff;
+}
+
+
+
+// table stuff
+.twocolumn{
+    width:242px;
+}
 table{
     border-spacing:0;
     border-collapse: collapse;
@@ -132,7 +167,10 @@ table{
             text-align:center;
             align-content:center;
             padding:1px 0 12px 0;
+            @include sm-max{
+                padding:0 10px 0 10px;
             }
+        }
     }
     &.wrapper{
         width:100%;
@@ -144,14 +182,27 @@ table{
             display:table-cell;
             text-align:left;
             align-content:center;
-            }
+        }
+        @include sm-max{
+            width: 100%;
+            width: 100% !important;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
     }
     &.presentation{
         & td, th{
             padding:1px 2px 2px 0;
+            @include sm-max{
+                padding:0 0 0 0;
+                &.bottomborder{
+                    padding:0 0 40px 0!important;
+                    margin:auto auto 10px auto !important;
+                }
+            }
         }
     }
-
 
 }
 .leftcol{
@@ -180,45 +231,14 @@ table{
 .hugright{
     & td{padding-right:0 !important;}
 }
-.left{
-    text-align:left;
-}
 .block{
     width:50%;
-}
-.center, .centre {
-    text-align: center !important;
-    text-align-last:center !important;
-    margin: 0 auto;
-    float: none !important;
-}
-
-.logo_container{
-    background-color: #000000;
 }
 .bottomborder{
     padding-bottom:10px!important;
     border-bottom:0.5px solid #000000;
 }
 
-.preheader{
-    font-family: $preheadertext;
-    font-size:12px;
-    color:#000;
-    & a {
-        color:#000;
-        text-decoration:none;
-    }
-}
-
-.footertext{
-    padding:10px;
-    font-family: $preheadertext;
-    color:#ffffff;
-}
-.footerlink{
-    color:#ffffff;
-}
 
 @media only screen and (max-width: 599px) {
     p .spacer{display:block;}
@@ -238,6 +258,10 @@ table{
                 width:100px;
             }
         }
+        
+            padding:0 0 0 0 !important;
+        
+
     }   
     .leftcol{
         &.bottomborder{
@@ -245,15 +269,17 @@ table{
             border-bottom:0px solid #000000;
         }
     } 
+    .rightcol{
+        &.block{
+            width:auto;
+            padding:0 0 0 0 !important;
+        }
+    }
     .evenright{
         padding-left:0 !important;
     }
-    .wrapper {
-        width: 100%;
-        width: 100% !important;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+
+
     .fl {
         width: 100%;
         width: 100% !important;
@@ -266,21 +292,14 @@ table{
         display: none !important;
     }
 
-        .block { display: block !important; width: 100% !important; }
-
-
+    .block { display: block !important; width: 100% !important; }
     .leaderboard_padding {
         padding: 10px 10px !important
     }
-
-
-
     .footer {
         text-align: center !important;
     }
    
-
-
 
 
 
