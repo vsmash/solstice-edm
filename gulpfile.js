@@ -171,9 +171,7 @@ const tennewsicon = `
           </td>
           <td
               valign="middle">
-              <span>TEN
-                  NEWS
-                  FIRST</span>
+              <img src="images/ten_news_first.png" alt="TEN NEWS FIRST">
           </td>
       </tr>
   </table>
