@@ -107,13 +107,13 @@ const storyimg = `
 `;
 const img2col = `
 <tr>
-  <td class="img2col">
+  <td class="img2col" width="245">
       <a href=""><img
       editable="true"
       alt="Image:"
       border="0"
       src="images/story-placeholder.jpg"
-      width="290" /></a>
+      width="242" /></a>
   </td>
 </tr>
 `;
@@ -140,15 +140,15 @@ const readmore = `
 `;
 const twocolumnstory = `
 <tr>
-  <td class="leftcol block bottomborder" valign="top">
+  <td class="leftcol block bottomborder" width="242" valign="top">
       <a href=""><img
       editable="true"
       alt="Image:"
       border="0"
       src="images/story-placeholder.jpg"
-      width="290" /></a>
+      width="242" /></a>
   </td>
-  <td class="rightcol block bottomborder">
+  <td class="block rightcol bottomborder">
       <table>
           {{category}}
           {{icon}}
@@ -258,20 +258,20 @@ const Topstories = `
 </tr>
 `;
 const breaking = left(`
-<img alt="BREAKING:" border="0" class="h14_w14 "
+<img alt="BREAKING:" border="0" class="h14_w14"
             src="images/breaking.gif"  width="15"
-            valign="top" /> <span
-            ><b>
+            valign="top" /> <span class="category" 
+            >
               <singleline>BREAKING</singleline>
-            </b></span>
+            </span>
 `);
 const exclusive = left(`
 <img alt="EXCLUSIVE:" border="0" class="h14_w14 "
             src="images/exclusive.gif"  width="15"
-            valign="top" /> <span
-            ><b>
+            valign="top" /> <span class="category" 
+            >
               <singleline>EXCLUSIVE</singleline>
-            </b></span>
+            </span>
 `);
 const mrec = centre(`
 <table border="0" cellpadding="0" align="center" cellspacing="0" width="300" style="width:300px;padding-bottom:10px;">
@@ -288,26 +288,25 @@ const mrec = centre(`
 const twocolumn = `
 <tr>
   <td class="bottomborder">
-      <table class="presentation twocol">
+      <table class="presentation">
           <tr>
-              <td class="leftcol block">
-                  <table>
-                      {{category}}
-                      {{headline}}
-                      {{image}}
+              <td class="block evenleft" style="padding:0 58px 0 0;" valign="top">
+                  <table width="242" class="">
+                  {{image}}
+                  {{category}}
+                  {{headline}}
                       <tr><td>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam
+                      <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
                           </td></tr>
                   </table>
               </td>
-              <td class="rightcol block">
-                  <table>
-                      <table>
+              <td class="block evenright" align="right" style="padding: 0 0 0 58px;" valign="top">
+                  <table width="242" class="hugright">
+                      {{image}}
                       {{category}}
                       {{headline}}
-                      {{image}}
                       <tr><td>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam
+                      <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
                           </td></tr>
                   </table>
               </td>
@@ -394,8 +393,8 @@ const buildit = () => {
   template += buildTemplate(text,"Text");
   template += buildTemplate(breaking,"BREAKING");
   template += buildTemplate(exclusive,"EXCLUSIVE");
-  template += buildTemplate(exclusive+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+storyimg+featuredcopy+readmore,"EXCLUSIVE Feature Story");
-  template += buildTemplate(breaking+createHTML(featureheadline,{content:"BREAKING Feature Story"})+storyimg+featuredcopy+readmore,"BREAKING Feature Story");
+  template += buildTemplate(storyimg+exclusive+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+featuredcopy+readmore,"EXCLUSIVE Feature Story");
+  template += buildTemplate(storyimg+breaking+createHTML(featureheadline,{content:"BREAKING Feature Story"})+featuredcopy+readmore,"BREAKING Feature Story");
   template += buildTemplate(left(fullwidthheading),"Full Width Heading");
   template += buildTemplate(presspatron,"Press Patron");
   template += buildTemplate(showcase,"Regional Showcase");
