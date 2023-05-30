@@ -369,6 +369,12 @@ const inreview = centre(`
           <img editable="true" src="images/inreview-banner-1.123338.jpg" class="homes" width="600"
               border="0" alt="InReview" />
 `);
+const imageblock = centre(`
+          <img editable="true" src="images/imageblock.png" class="homes" width="600"
+              border="0" alt="InReview" />
+`);
+
+
 const buildit = () => {
   let template = "";
   template += buildTemplate(left(Preheader),'Preheader');
@@ -397,7 +403,7 @@ const buildit = () => {
   template += buildTemplate(presspatron,"Press Patron");
   template += buildTemplate(showcase,"Regional Showcase");
   template += buildTemplate(showcaseend,"Regional Showcase - END SECTION");
-  template += buildTemplate(inreview,"InReview");
+  template += buildTemplate(imageblock,"Image Block");
   return template;
   }
 
