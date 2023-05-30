@@ -251,9 +251,15 @@ table{
             width:100%;
         }
     }
+    .playicon{
+        width:auto!important;
+    }
     .leftcol, .rightcol{
         & img{
             width:100%;
+            &.playicon{
+                width:40px;
+            }
             &.tnf{
                 width:100px;
             }

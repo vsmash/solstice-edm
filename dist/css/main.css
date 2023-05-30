@@ -301,11 +301,17 @@ table.presentation td, table.presentation th {
   .img2col img {
     width: 100%;
   }
+  .playicon {
+    width: auto !important;
+  }
   .leftcol, .rightcol {
     padding: 0 0 0 0 !important;
   }
   .leftcol img, .rightcol img {
     width: 100%;
+  }
+  .leftcol img.playicon, .rightcol img.playicon {
+    width: 40px;
   }
   .leftcol img.tnf, .rightcol img.tnf {
     width: 100px;

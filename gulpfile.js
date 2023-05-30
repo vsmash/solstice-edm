@@ -167,7 +167,7 @@ const tennewsicon = `
       <tr>
           <td width="40">
               <img src="images/Play_icon.png"
-                  height="30">
+                  height="30" class="playicon" alt="Play Icon">
           </td>
           <td
               valign="middle">
