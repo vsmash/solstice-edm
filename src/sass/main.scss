@@ -104,9 +104,7 @@ h9{
     font-size: 9px; color: #000000;
 }
 
-.multiline-style{
-    margin-bottom:20px;
-}
+
 
 .presspatron{
     background-color: rgb(246,246,246);
@@ -161,7 +159,6 @@ table{
     border-spacing:0;
     border-collapse: collapse;
     width:100%;
-    background-color:$test1;
     &.row{
         border-collapse:collapse;
         width:100%;
@@ -177,7 +174,6 @@ table{
     &.wrapper{
         width:100%;
         max-width:600px;
-        background-color: $test3;
         border-collapse:collapse;
         margin:0 auto;
         & td, th{
@@ -194,15 +190,13 @@ table{
 
     }
     &.presentation{
-        @include sm-max{
-            margin-top: 15px;
-        }
         & td, th{
             padding:1px 2px 2px 0;
             @include sm-max{
                 padding:0 0 0 0;
                 &.bottomborder{
-                    padding:0 0 10px 0!important;
+                    padding:0 0 40px 0!important;
+                    margin:auto auto 10px auto !important;
                 }
             }
         }
@@ -240,7 +234,7 @@ table{
 }
 .bottomborder{
     padding-bottom:10px!important;
-    border-bottom:0.5px solid #000000;
+    border-bottom:1px solid #000000;
 }
 
 
@@ -255,15 +249,9 @@ table{
             width:100%;
         }
     }
-    .playicon{
-        width:auto!important;
-    }
     .leftcol, .rightcol{
         & img{
             width:100%;
-            &.playicon{
-                width:40px;
-            }
             &.tnf{
                 width:100px;
             }
