@@ -30,9 +30,9 @@ function createHTML(template, variables) {
   });
 }
 
-function buildTemplate(innertemplate, labelname){
+function buildTemplate(innertemplate, labelname, thiswrapper=wrapperNoLine){
     let html  = createHTML(innertemplate,{content:labelname});
-    html = createHTML(wrapper,{content:html,itemlabel:labelname});
+    html = createHTML(thiswrapper,{content:html,itemlabel:labelname});
     // append to repeater
     return html;
 }
@@ -59,6 +59,25 @@ const centre = function(content){
   `;
 };
 const wrapper = `
+<layout label="{{itemlabel}}">
+<table class="row">
+  <tr>
+    <td align="center">
+      <table class="wrapper">
+        <tr>
+          <td class="bottomborder">
+          <table class="presentation">
+                           {{content}}
+          </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</layout>
+`;
+const wrapperNoLine = `
 <layout label="{{itemlabel}}">
 <table class="row">
   <tr>
@@ -119,14 +138,14 @@ const img2col = `
 `;
 const storycopy = `
 <tr>
-  <td class="storycopy bottomborder">
+  <td class="storycopy">
   <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
 `;
 const featuredcopy = `
 <tr>
-  <td class="featuredcopy bottomborder"><div class="multiline-style featuredcopy"><multiline>
+  <td class="featuredcopy "><div class="multiline-style featuredcopy"><multiline>
       Featured story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
   </td>
 </tr>
@@ -140,7 +159,7 @@ const readmore = `
 `;
 const twocolumnstory = `
 <tr>
-  <td class="leftcol block bottomborder" width="242" valign="top">
+  <td class="leftcol block " width="242" valign="top">
       <a href=""><img
       editable="true"
       alt="Image:"
@@ -148,7 +167,7 @@ const twocolumnstory = `
       src="images/story-placeholder.jpg"
       width="242" /></a>
   </td>
-  <td class="block rightcol bottomborder">
+  <td class="block rightcol ">
       <table>
           {{category}}
           {{icon}}
@@ -225,7 +244,7 @@ const header = `
 `;
 const banner = `
   <tr>
-      <td class="center" align="center" style="padding-bottom:20px;border-bottom:1px black solid;">
+      <td class="center" align="center" style="padding-bottom:20px;">
           <h9>
   <currentday>
       <currentmonthname>, <currentyear> <singleline></singleline>
@@ -245,7 +264,7 @@ const midboard = centre(`
 `);
 const Topstories = `
 <tr>
-  <td align="left" class="bottomborder">
+  <td align="left" >
   <h2>
       <a class="w100pc mob_only_inline_block"
           href="http://indaily.com.au">
@@ -285,7 +304,7 @@ const mrec = centre(`
 `);
 const twocolumn = `
 <tr>
-  <td class="bottomborder">
+  <td >
       <table class="presentation">
           <tr>
               <td class="block evenleft" style="padding:0 58px 0 0;" valign="top">
@@ -381,26 +400,26 @@ const buildit = () => {
   template += buildTemplate(left(Preheader),'Preheader');
   template += buildTemplate(viewonline,'View Online');
   template += buildTemplate(header,'HEADER');
-  template += buildTemplate(banner,'Banner');
+  template += buildTemplate(banner,'Banner', wrapper);
   template += buildTemplate(midboard,'Advertisement (mid-board)');
-  template += buildTemplate(Topstories,"Section Block");
-  template += buildTemplate(storyimg+category+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category");
-  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story"})+featuredcopy+readmore,"Feature Story");
-  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story no read more"})+featuredcopy+readmore,"Feature story no read more");
-  template += buildTemplate(category+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image");
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (2 column)",category:category,icon:""}),"1 Story (2 column)");
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (No Category)",category:"",icon:""}),"1 Story (No Category)");
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"Video Story with Icon",category:"",icon:tennewsicon}),"Video Story with Icon");
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"}),category:"",image:img2col,icon:""}),"2 column");
+  template += buildTemplate(Topstories,"Section Block",wrapper);
+  template += buildTemplate(storyimg+category+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
+  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story"})+featuredcopy+readmore,"Feature Story", wrapper);
+  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story no read more"})+featuredcopy+readmore,"Feature story no read more", wrapper);
+  template += buildTemplate(category+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image", wrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (2 column)",category:category,icon:""}),"1 Story (2 column)", wrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (No Category)",category:"",icon:""}),"1 Story (No Category)", wrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"Video Story with Icon",category:"",icon:tennewsicon}),"Video Story with Icon", wrapper);
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"}),category:"",image:img2col,icon:""}),"2 column", wrapper);
   template += buildTemplate(mrec,"Advertisement (mrec)");
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category");
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", wrapper);
   template += buildTemplate(category,"Category");
   template += buildTemplate(text,"Text");
   template += buildTemplate(breaking,"BREAKING");
   template += buildTemplate(exclusive,"EXCLUSIVE");
-  template += buildTemplate(storyimg+exclusive+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+featuredcopy+readmore,"EXCLUSIVE Feature Story");
-  template += buildTemplate(storyimg+breaking+createHTML(featureheadline,{content:"BREAKING Feature Story"})+featuredcopy+readmore,"BREAKING Feature Story");
-  template += buildTemplate(left(fullwidthheading),"Full Width Heading");
+  template += buildTemplate(storyimg+exclusive+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+featuredcopy+readmore,"EXCLUSIVE Feature Story", wrapper);
+  template += buildTemplate(storyimg+breaking+createHTML(featureheadline,{content:"BREAKING Feature Story"})+featuredcopy+readmore,"BREAKING Feature Story", wrapper);
+  template += buildTemplate(left(fullwidthheading),"Full Width Heading", wrapper);
   template += buildTemplate(presspatron,"Press Patron");
   template += buildTemplate(showcase,"Regional Showcase");
   template += buildTemplate(showcaseend,"Regional Showcase - END SECTION");

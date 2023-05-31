@@ -144,10 +144,6 @@ h9 {
   color: #000000;
 }
 
-.multiline-style {
-  margin-bottom: 20px;
-}
-
 .presspatron {
   background-color: rgb(246, 246, 246);
   border-top: 1px solid #000000;
@@ -204,7 +200,6 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
-  background-color: #fff;
 }
 table.row {
   border-collapse: collapse;
@@ -223,7 +218,6 @@ table.row td, table.row th {
 table.wrapper {
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
   border-collapse: collapse;
   margin: 0 auto;
 }
@@ -240,11 +234,6 @@ table.wrapper td, table.wrapper th {
     padding-right: 15px;
   }
 }
-@media (max-width: 599px) {
-  table.presentation {
-    margin-top: 15px;
-  }
-}
 table.presentation td, table.presentation th {
   padding: 1px 2px 2px 0;
 }
@@ -253,7 +242,8 @@ table.presentation td, table.presentation th {
     padding: 0 0 0 0;
   }
   table.presentation td.bottomborder, table.presentation th.bottomborder {
-    padding: 0 0 10px 0 !important;
+    padding: 0 0 40px 0 !important;
+    margin: auto auto 10px auto !important;
   }
 }
 
@@ -293,7 +283,7 @@ table.presentation td, table.presentation th {
 
 .bottomborder {
   padding-bottom: 10px !important;
-  border-bottom: 0.5px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 
 @media only screen and (max-width: 599px) {
@@ -309,17 +299,11 @@ table.presentation td, table.presentation th {
   .img2col img {
     width: 100%;
   }
-  .playicon {
-    width: auto !important;
-  }
   .leftcol, .rightcol {
     padding: 0 0 0 0 !important;
   }
   .leftcol img, .rightcol img {
     width: 100%;
-  }
-  .leftcol img.playicon, .rightcol img.playicon {
-    width: 40px;
   }
   .leftcol img.tnf, .rightcol img.tnf {
     width: 100px;
