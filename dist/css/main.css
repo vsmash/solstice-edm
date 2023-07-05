@@ -19,22 +19,6 @@
   font-weight: bold;
   font-style: normal;
 }
-/* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
-body {
-  padding: 0;
-  font-weight: normal;
-  margin: 0;
-}
-
-p {
-  text-align: justify;
-  text-align-last: left;
-}
-p .spacer {
-  display: none;
-  line-height: 10px;
-}
-
 .readmore {
   display: none;
 }
@@ -351,5 +335,27 @@ table.presentation td, table.presentation th {
   }
   .w195 {
     width: 195px !important;
+  }
+}
+@media screen and (max-width: 460px) {
+  .two-col .column {
+    max-width: 100% !important;
+  }
+  .two-col img {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 461px) {
+  .three-col .column {
+    max-width: 33.3% !important;
+  }
+  .two-col .column {
+    max-width: 50% !important;
+  }
+  .sidebar .small {
+    max-width: 16% !important;
+  }
+  .sidebar .large {
+    max-width: 84% !important;
   }
 }

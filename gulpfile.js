@@ -60,55 +60,50 @@ const centre = function(content){
 };
 const wrapper = `
 <layout label="{{itemlabel}}">
-<table class="row">
-  <tr>
-    <td align="center">
-      <table class="wrapper">
-        <tr>
-          <td class="bottomborder">
-          <table class="presentation">
-                           {{content}}
-          </table>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+  <table role="presentation" style="width:100%;border:0;border-spacing:0;" width="100%">
+  {{content}}
+  </table>
 </layout>
 `;
 const wrapperNoLine = `
 <layout label="{{itemlabel}}">
-<table class="row">
-  <tr>
-    <td align="center">
-      <table class="wrapper">
-        <tr>
-          <td>
-                          <table class="presentation">
-                           {{content}}
-                          </table>
-                      </td>
-                  </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+  <table role="presentation" style="width:100%;border:0;border-spacing:0;" width="100%">
+  {{content}}
+  </table>
 </layout>
 `;
-const category = `
+
+const emptyWrapper = `
+<layout label="{{itemlabel}}">
+  {{content}}
+</layout>
+`;
+
+
+const newrapper = `<table role="presentation" style="width:100%;border:0;border-spacing:0;">
 <tr>
-  <td class="category">
+    <td style="padding:10px 10px 20px 10px;font-family:Arial,sans-serif;font-size:24px;line-height:28px;font-weight:bold;">
+        <img src="images/header.png" width="640" alt="" style="width:100%;height:auto;" />
+    </td>
+</tr>
+<tr>
+    <td style="padding:10px;text-align:left;">
+        <h1 style="margin-top:0;margin-bottom:16px;font-family:Arial,sans-serif;font-size:26px;line-height:32px;font-weight:bold;">Creating responsive email magic</h1>
+        <p style="margin:0;font-family:Arial,sans-serif;font-size:18px;line-height:24px;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus!</p>
+    </td>
+</tr>
+</table>
+<div class="spacer" style="line-height:26px;height:26px;mso-line-height-rule:exactly;">&nbsp;</div>
+`;
+
+const category = `
+  <p class="category">
       <singleline>CATEGORY</singleline>
-  </td>
-</td>
+  </p>
 `;
 const headline = `
-<tr>
-  <td class="headline">
-      <h2><singleline>{{content}}</singleline></h2>
-  </td>
-</td>
+
+      <h2 style="font-size:18px;text-align:left;"><singleline>{{content}}</singleline></h2>
 `;
 const featureheadline = `
 <tr>
@@ -118,23 +113,17 @@ const featureheadline = `
 </td>
 `;
 const storyimg = `
-<tr>
-  <td class="storyimg">
+
       <img editable="true" alt="Image:" border="0" src="images/story-placeholder.jpg" width="600">
-  </td>
-</td>
 `;
 const img2col = `
-<tr>
-  <td class="img2col" width="245">
+<p style="margin:0;font-family:Arial,sans-serif;font-size:14px;line-height:18px;">
       <a href=""><img
       editable="true"
       alt="Image:"
       border="0"
       src="images/story-placeholder.jpg"
-      width="242" /></a>
-  </td>
-</tr>
+      width="280" alt="" style="display:block;width:280px;max-width:100%;height:auto;" /></a></p>
 `;
 const storycopy = `
 <tr>
@@ -158,43 +147,51 @@ const readmore = `
 </tr>
 `;
 const twocolumnstory = `
-<tr>
-  <td class="leftcol block " width="242" valign="top">
-      <a href=""><img
-      editable="true"
-      alt="Image:"
-      border="0"
-      src="images/story-placeholder.jpg"
-      width="242" /></a>
-  </td>
-  <td class="block rightcol ">
-      <table>
-          {{category}}
-          {{icon}}
-          <tr><td><h2><singleline>{{headline}}</singleline></h2></td></tr>
-          <tr><td><div class="multiline-style"><multiline>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div></td></tr>
-      </table>
-  </td>
-</tr>
-` 
+<div class="two-col" style="text-align:center;font-size:0;">
+    <!--[if mso]> 
+<table role="presentation" width="100%"> 
+<tr> 
+<td style="width:50%;padding:10px;" valign="middle"> 
+<![endif]-->
+    <div class="column" style="width:100%;max-width:300px;display:inline-block;vertical-align:middle;">
+        <div style="padding:10px;">
+            <p style="margin:0;font-family:Arial,sans-serif;font-size:14px;line-height:18px;">
+            <a href=""><img
+            editable="true"
+            alt="Image:"
+            border="0"
+            src="images/story-placeholder.jpg"
+            width="280" alt="" style="display:block;width:280px;max-width:100%;height:auto;"
+            /></a>
+            </p>
+        </div>
+    </div>
+    <!--[if mso]> 
+</td> 
+<td style="width:50%;padding:0 0 0 0;" valign="top"> 
+<![endif]-->
+    <div class="column" style="width:100%;max-width:300px;display:inline-block;vertical-align:top;padding:0 0 0 0;">
+        <div style="padding:0 10px 0 10px;font-size:16px;line-height:18px;text-align:left;">
+        {{category}}
+        {{icon}}
+        <p class="storycopy">
+       <multiline>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></p>
+        </div>
+    </div>
+    <!--[if mso]> 
+</td> 
+</tr> 
+</table> 
+<![endif]-->
+</div>
+
+
+
+`; 
 const tennewsicon = `
-<tr><td>
-  <table border="0"
-      cellpadding="0"
-      cellspacing="0"
-      width="100%">
-      <tr>
-          <td width="40">
+<p>
               <img src="images/Play_icon.png"
-                  height="30" class="playicon" alt="Play Icon">
-          </td>
-          <td
-              valign="middle">
-              <img src="images/ten_news_first.png" class="tnf" alt="TEN NEWS FIRST">
-          </td>
-      </tr>
-  </table>
-  </td></tr>
+                  height="30" class="playicon" alt="Play Icon">&nbsp;&nbsp;<img src="images/ten_news_first.png" class="tnf" alt="TEN NEWS FIRST"></p>
 `;
 const text = `
 <tr>
@@ -228,16 +225,16 @@ const viewonline = left(`
 `);
 const header = `
 <tr>
-  <th class="center"> <a editable="true"
+  <th class="center"> <center><a editable="true"
           href="https://indaily.com.au"> <img editable="true"
               alt="InDaily - Adelaide Independent News" border="0"
               src="images/indaily_logo_notagline.png"
-              width="250" /> </a>
+              width="250" /> </a></center>
   </th>
 </tr>
 <tr>
   <th class="fl center " valign="top">
-      <h1 class="todaysheadlines">Today's Headlines</h1>
+      <center><h1 class="todaysheadlines">Today's Headlines</h1></center>
   </th>
 </tr>
 
@@ -245,22 +242,21 @@ const header = `
 const banner = `
   <tr>
       <td class="center" align="center" style="padding-bottom:20px;">
+      <center>
           <h9>
   <currentday>
       <currentmonthname>, <currentyear> <singleline></singleline>
           </h9>
 
-      </td>
+      </td></center>
   </tr>
 `;
 const midboard = centre(`
-<table border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:728px;" width="90">
   <tr>
       <td class="full_lb"> <a href="" style="text-decoration:none;">
-              <p class="advertisement">Advertisement</p><img editable="true" alt="Leaderboard" border="0" src="images/mid-board-placeholder.jpg" width="728" />
+              <p class="advertisement">Advertisement</p><img editable="true" alt="Leaderboard" border="0" src="images/mid-board-placeholder.jpg" width="100%" />
           </a> </td>
   </tr>
-</table>
 `);
 const Topstories = `
 <tr>
@@ -293,16 +289,54 @@ const exclusive = left(`
 const mrec = centre(`
 <table border="0" cellpadding="0" align="center" cellspacing="0" width="300" style="width:300px;padding-bottom:10px;">
   <tr>
-      <td> <a href="" >
+      <td><center><a href="" >
               <p class="advertisment">Advertisement</p><img
                   editable="true" alt="Advertisement" border="0"
                   src="images/mrec-placeholder.jpg" width="300" align="center" />
-          </a>
+          </a></center>
           <p>&nbsp;</p> </td>
   </tr>
 </table>
 `);
 const twocolumn = `
+<div class="two-col" style="text-align:center;font-size:0;">
+    <!--[if mso]> 
+<table role="presentation" width="100%"> 
+<tr> 
+<td style="width:50%;padding:10px;" valign="middle"> 
+<![endif]-->
+    <div class="column" style="width:100%;max-width:300px;display:inline-block;vertical-align:middle;">
+        <div style="padding:10px;font-size:14px;text-align:left;">
+        {{image}}
+        {{category}}
+        {{headline}}
+        <multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline>
+        </div>
+    </div>
+    <!--[if mso]> 
+</td> 
+<td style="width:50%;padding:10px;" valign="top"> 
+<![endif]-->
+<div class="column" style="width:100%;max-width:300px;display:inline-block;vertical-align:middle;">
+<div style="padding:10px;font-size:14px;text-align:left;">
+{{image}}
+{{category}}
+{{headline}}
+<multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline>
+</div>
+</div>
+    <!--[if mso]> 
+</td> 
+</tr> 
+</table> 
+<![endif]-->
+</div>
+
+
+
+`; 
+
+const twocolumnold = `
 <tr>
   <td >
       <table class="presentation">
@@ -333,6 +367,7 @@ const twocolumn = `
   </td>
 </tr>
 `;
+
 const fullwidthheading = `
 <div >
   <h1 class="font_size_24 line_height_28"
@@ -397,7 +432,7 @@ const imageblock = centre(`
 
 const buildit = () => {
   let template = "";
-  template += buildTemplate(left(Preheader),'Preheader');
+  //template += buildTemplate(Preheader,'Preheader');
   template += buildTemplate(viewonline,'View Online');
   template += buildTemplate(header,'HEADER');
   template += buildTemplate(banner,'Banner', wrapper);
@@ -405,14 +440,13 @@ const buildit = () => {
   template += buildTemplate(Topstories,"Section Block",wrapper);
   template += buildTemplate(storyimg+category+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
   template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story"})+featuredcopy+readmore,"Feature Story", wrapper);
-  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story no read more"})+featuredcopy+readmore,"Feature story no read more", wrapper);
   template += buildTemplate(category+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (2 column)",category:category,icon:""}),"1 Story (2 column)", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (No Category)",category:"",icon:""}),"1 Story (No Category)", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"Video Story with Icon",category:"",icon:tennewsicon}),"Video Story with Icon", wrapper);
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"}),category:"",image:img2col,icon:""}),"2 column", wrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (2 column)",category:category,icon:""}),"1 Story (2 column)", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (No Category)",category:"",icon:""}),"1 Story (No Category)", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:"Video Story with Icon",category:"",icon:tennewsicon}),"Video Story with Icon", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"},"{{content}}"),category:"",image:img2col,icon:""}),"2 column", emptyWrapper);
   template += buildTemplate(mrec,"Advertisement (mrec)");
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", wrapper);
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", emptyWrapper);
   template += buildTemplate(category,"Category");
   template += buildTemplate(text,"Text");
   template += buildTemplate(breaking,"BREAKING");
@@ -453,6 +487,13 @@ const demo = () =>
     .pipe(inlinesource({ rootpath: path.resolve("dist") }))
     .pipe(gulp.dest("dist"));
 
+    const oldversion = () =>
+    gulp
+      .src(["src/oldversion.html"])
+      .pipe(rename("oldversion.html"))
+      .pipe(inlinesource({ rootpath: path.resolve("dist") }))
+      .pipe(gulp.dest("dist"));
+  
 
 const cssdev = () =>
   gulp
@@ -530,7 +571,7 @@ const dev = () =>
   gulp.watch(
     ["src/**/*", "version.txt"],
     { ignoreInitial: false },
-    gulp.series(assets, sassdev, demo, htmldev, zipit)
+    gulp.series(assets, sassdev, demo, htmldev, oldversion, zipit)
   );
 
 exports.html = html;
@@ -539,4 +580,4 @@ exports.dev = dev;
 exports.sassprod = sassprod;
 exports.demo = demo;
 exports.zipit = zipit;
-exports.default = gulp.series(assets,sassprod, css, html, demo, zipit);
+exports.default = gulp.series(assets,sassprod, css, html, demo, oldversion, zipit);

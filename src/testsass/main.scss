@@ -3,8 +3,18 @@
 @import "colors";
 @import "fonts";
 
-
-
+/* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
+body {
+    padding: 0; font-weight: normal; margin: 0;
+}
+p{
+    text-align:justify;
+    text-align-last: left;
+    .spacer{
+        display:none;
+        line-height: 10px;
+    }
+}
 .readmore{
     display:none;
 }
@@ -17,7 +27,6 @@
     vertical-align: middle; 
     letter-spacing: 3.6px;
 }
-
 a[x-apple-data-detectors] {
     color: inherit !important;
     text-decoration: none !important;
@@ -34,8 +43,7 @@ a{
     font-weight: inherit;
     line-height: inherit;
 }
-body,
-td {
+body, td {
     font-family: $tdfont;
     font-size: 16px;
     line-height: 20px;
@@ -93,8 +101,6 @@ h9{
     font-size: 9px; color: #000000;
 }
 
-
-
 .presspatron{
     background-color: rgb(246,246,246);
     border-top: 1px solid #000000; border-bottom: 2px solid #000000;
@@ -109,7 +115,6 @@ h9{
 .left{
     text-align:left;
 }
-
 .center, .centre {
     text-align: center !important;
     text-align-last:center !important;
@@ -308,25 +313,3 @@ table{
 }
 
 
-@media screen and (max-width: 460px) {
-    .two-col .column {
-      max-width: 100% !important;
-    }
-    .two-col img {
-      width: 100% !important;
-    }
-  }
-  @media screen and (min-width: 461px) {
-    .three-col .column {
-      max-width: 33.3% !important;
-    }
-    .two-col .column {
-      max-width: 50% !important;
-    }
-    .sidebar .small {
-      max-width: 16% !important;
-    }
-    .sidebar .large {
-      max-width: 84% !important;
-    }
-  }
