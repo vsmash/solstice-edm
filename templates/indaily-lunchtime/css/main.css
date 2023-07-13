@@ -1,0 +1,325 @@
+@import "breakpoints";
+@import "mixins";
+@import "colors";
+@import "fonts";
+
+/* Mobile Responsive XML Email Editor Template built by Adestra Digital Design - TP CP16964 03/2019 */
+body {
+    padding: 0; font-weight: normal; margin: 0;
+}
+p{
+    text-align:justify;
+    text-align-last: left;
+    .spacer{
+        display:none;
+        line-height: 10px;
+    }
+}
+
+.readmore{
+    display:none !important;
+}
+.category{
+    font-family:$lato;
+    color: #616161; 
+    font-size: 13px; 
+    font-weight:bold;
+    line-height: 20px; 
+    vertical-align: middle; 
+    letter-spacing: 1px;
+}
+
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+a{
+    color: #000000;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+body,
+td {
+    font-family: $tdfont;
+    font-size: 16px;
+    line-height: 20px;
+    color: $content;
+    margin: 0px;
+}
+.featuredcopy{
+    font-size:16px;
+    line-height:20px;
+}
+img {
+    border: none;
+    display: inline-block;
+    color: #000000;
+    max-width:100%;
+}
+.button{
+    width:fit-content;
+    & a {
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+    line-height: 14px;
+}
+}
+H1{
+    text-align: inherit; padding: 0; margin: 0; color:#000000; 
+    font-family: $heading;
+    font-weight:normal; font-size:36px;
+    line-height: 40px;
+    &.todaysheadlines{font-size:40px;padding-top:20px;padding-bottom:20px;}
+}
+h2{
+    margin:2px 0 4px 0;
+    font-weight:normal;
+    font-family:$heading;
+    & a {
+        color: #000000;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+}
+.h14_w14{
+    vertical-align: middle;
+}
+h9{
+    font-size:24px;padding-bottom:15px;
+}
+.advertisement, advertisement p{
+    font-size: 9px; color: #000000;
+    text-align-last: left!important;text-align: left!important;
+}
+
+
+
+.presspatron{
+    background-color: rgb(246,246,246);
+    border-top: 1px solid #000000; border-bottom: 2px solid #000000;
+    height:56px;
+    padding:20px !important;
+    & h1{
+        font-size:20px;
+        line-height:24px;
+        text-align: center;
+    }
+}
+.left{ 
+    text-align:left;
+}
+
+.center, .centre {
+    text-align: center !important;
+    text-align-last:center !important;
+    margin: 0 auto;
+    float: none !important;
+}
+.logo_container{
+    background-color: #000000;
+}
+.preheader{
+    font-family: $preheadertext;
+    font-size:12px;
+    color:#000;
+    & a {
+        color:#000;
+        text-decoration:none;
+    }
+}
+
+.footertext{
+    padding:10px;
+    font-family: $preheadertext;
+    color:#ffffff;
+}
+.footerlink{
+    color:#ffffff;
+}
+
+
+
+// table stuff
+.twocolumn{
+    width:242px;
+}
+table{
+    border-spacing:0;
+    border-collapse: collapse;
+    width:100%;
+    background-color:$test1;
+    &.row{
+        border-collapse:collapse;
+        width:100%;
+        & td, th{
+            text-align:center;
+            align-content:center;
+            padding:1px 0 12px 0;
+            @include sm-max{
+                padding:0 10px 0 10px;
+            }
+        }
+    }
+    &.wrapper{
+        width:100%;
+        max-width:600px;
+        background-color: $test3;
+        border-collapse:collapse;
+        margin:0 auto;
+        & td, th{
+            display:table-cell;
+            text-align:left;
+            align-content:center;
+        }
+        @include sm-max{
+            width: 100%;
+            width: 100% !important;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+    }
+    &.presentation{
+        & td, th{
+            padding:1px 2px 2px 0;
+            @include sm-max{
+                padding:0 0 0 0;
+                &.bottomborder{
+                    padding:0 0 40px 0!important;
+                    margin:auto auto 10px auto !important;
+                }
+            }
+        }
+    }
+
+}
+.leftcol{
+    padding-right:58px;
+    &.block{
+        width:242px;
+    }
+}
+.rightcol{
+    padding:0 0 0 58px !important;
+    &.img2col{
+        padding:0 0 0 0 !important;
+    }
+    &.block{
+        width:auto;
+        padding:0 0 0 10px !important;
+    }
+    
+}
+.evenleft{
+    padding-right:0 58px 0 0!important;
+}
+.evenright{
+    padding-left:0 0 0 58px !important;
+}
+.hugright{
+    & td{padding-right:0 !important;}
+}
+.block{
+    width:50%;
+}
+.bottomborder{
+    padding-bottom:10px!important;
+    border-bottom:0.5px solid #000000;
+}
+
+
+@media only screen and (max-width: 599px) {
+    p .spacer{display:block;}
+    html {
+        -webkit-text-size-adjust: none;
+    }
+    .img2col{
+        width:100%;
+        & img{
+            width:100%;
+        }
+    }
+    .leftcol, .rightcol{
+        & img{
+            width:100%;
+            &.tnf{
+                max-width:100px !important;
+                width:100px;
+            }
+        }
+        
+            padding:0 0 0 0 !important;
+        
+
+    }   
+    .leftcol{
+        &.bottomborder{
+            padding-bottom:0px!important;
+            border-bottom:0px solid #000000;
+        }
+    } 
+    .rightcol{
+        &.block{
+            width:auto;
+            padding:0 0 0 0 !important;
+        }
+    }
+    .evenright{
+        padding-left:0 !important;
+    }
+
+
+    .fl {
+        width: 100%;
+        width: 100% !important;
+        float: left;
+        height: auto;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .mob_none {
+        display: none !important;
+    }
+
+    .block { display: block !important; width: 100% !important; }
+    .leaderboard_padding {
+        padding: 10px 10px !important
+    }
+    .footer {
+        text-align: center !important;
+    }
+   
+
+
+
+
+}
+
+/* Really small screens styling starts here */
+@media only screen and (max-width: 400px) {
+    .news_reduce_font_size {
+        font-size: 12px !important;
+    }
+    .news_watch_reduce_font_size {
+        font-size:
+            10px !important;
+    }
+    .w195 {
+        width: 195px !important;
+    }
+}
+
+

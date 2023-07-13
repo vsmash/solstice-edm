@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 const gulp = require("gulp");
 const sass = require('gulp-sass')(require('sass'));
+const file = require('gulp-file');
+const fs = require('fs');
 const replace = require("gulp-replace");
 const rename = require("gulp-rename");
 const sourcemaps = require('gulp-sourcemaps');
@@ -19,13 +21,32 @@ const cssVersion = new Date().getTime();
 const sassFiles = './src/sass/**/*.scss';
 const currentDate = new Date();
 const zip = require('gulp-zip');
-require('./src/indaily_lunchtime.js');
+const formatHTML = require('gulp-format-html');
+const indailylunchtime ={
+  folder: 'indaily-lunchtime',
+  featuredheadline : 'left',
+  text: 'left',
+  preheader: 'left',
+  viewonline: 'left',
+  midboard: 'centre',
+  topstories: 'left',
+  breaking: 'left',
+  exclusive: 'left',
+  mrec: 'centre',
+  presspatron: 'centre',
+  showcase: 'centre',
+  showcaseend: 'centre',
+  inreview: 'centre',
+  imageblock: 'centre',
+}
 
 
+const source=indailylunchtime;
 
 // template build
 function createHTML(template, variables) {
-  return template.replace(/\{\{(\w+)\}\}/g, function(match, variable) {
+  let html = template.replace("##readmorelink##", readmorelink);
+  return html.replace(/\{\{(\w+)\}\}/g, function(match, variable) {
     return variables[variable] || '';
   });
 }
@@ -37,388 +58,93 @@ function buildTemplate(innertemplate, labelname, thiswrapper=wrapperNoLine){
     return html;
 }
 
+function readTemplate(templatePath) {
+  sourcfolder = source.folder;
+  try {
+    const contents = fs.readFile('templates/'+sourcefolder+'/'+templatePath+'.html', 'utf8');
+    const template = contents.replace(/\r?\n|\r/g, ''); // Remove line breaks for a single-line string
+    return contents;
+  } catch (err) {
+    const contents = fs.readFileSync('templates/'+templatePath+'.html', 'utf8');
+    return contents;
+  }
 
-
-
+}
 const left = function(content){
-  return `
-  <tr>
-      <td class="left">
-          ${content}
-      </td>
-  </tr>
-  `;
+  return readTemplate('left').replace("{{content}}",content);
 };
 const centre = function(content){
-  return `
-  <tr>
-      <td class="center" align="center">
-          ${content}
-      </td>
-  </tr>
-  `;
+  return readTemplate('centre').replace("{{content}}",content);
 };
-const wrapper = `
-<layout label="{{itemlabel}}">
-<table class="row">
-  <tr>
-    <td align="center">
-      <table class="wrapper">
-        <tr>
-          <td class="bottomborder">
-          <table class="presentation">
-                           {{content}}
-          </table>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-</layout>
-`;
-const wrapperNoLine = `
-<layout label="{{itemlabel}}">
-<table class="row">
-  <tr>
-    <td align="center">
-      <table class="wrapper">
-        <tr>
-          <td>
-                          <table class="presentation">
-                           {{content}}
-                          </table>
-                      </td>
-                  </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-</layout>
-`;
-const category = `
-<tr>
-  <td class="category">
-      <singleline>CATEGORY</singleline>
-  </td>
-</td>
-`;
-const headline = `
-<tr>
-  <td class="headline">
-      <h2><singleline>{{content}}</singleline></h2>
-  </td>
-</td>
-`;
-const featureheadline = `
-<tr>
-  <td class="featureheadline">
-     <h1><singleline>{{content}}</singleline></h1>
-  </td>
-</td>
-`;
-const storyimg = `
-<tr>
-  <td class="storyimg">
-      <img editable="true" alt="Image:" border="0" src="images/story-placeholder.jpg" width="600">
-  </td>
-</td>
-`;
-const img2col = `
-<tr>
-  <td class="img2col" width="245">
-      <a href=""><img
-      editable="true"
-      alt="Image:"
-      border="0"
-      src="images/story-placeholder.jpg"
-      width="242" /></a>
-  </td>
-</tr>
-`;
-const storycopy = `
-<tr>
-  <td class="storycopy">
-  <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
-  </td>
-</tr>
-`;
-const featuredcopy = `
-<tr>
-  <td class="featuredcopy "><div class="multiline-style featuredcopy"><multiline>
-      Featured story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
-  </td>
-</tr>
-`;
-const readmore = `
-<tr class="readmore">
-  <td class="readmore">
-      <a href="" editable="true">Read More</a>
-  </td>
-</tr>
-`;
-const twocolumnstory = `
-<tr>
-  <td class="leftcol block " width="242" valign="top">
-      <a href=""><img
-      editable="true"
-      alt="Image:"
-      border="0"
-      src="images/story-placeholder.jpg"
-      width="242" /></a>
-  </td>
-  <td class="block rightcol ">
-      <table>
-          {{category}}
-          {{icon}}
-          <tr><td><h2><singleline>{{headline}}</singleline></h2></td></tr>
-          <tr><td><div class="multiline-style"><multiline>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div></td></tr>
-      </table>
-  </td>
-</tr>
-` 
-const tennewsicon = `
-<tr><td>
-  <table border="0"
-      cellpadding="0"
-      cellspacing="0"
-      width="100%">
-      <tr>
-          <td width="40">
-              <img src="images/Play_icon.png"
-                  height="30" class="playicon" alt="Play Icon">
-          </td>
-          <td
-              valign="middle">
-              <img src="images/ten_news_first.png" class="tnf" alt="TEN NEWS FIRST">
-          </td>
-      </tr>
-  </table>
-  </td></tr>
-`;
-const text = `
-<tr>
-  <td align="left" class="left">
-  <div class="multiline-style">
-      <multiline>
-          <p>
-              This is text only - not part of the Category heading above, consectetur adipiscing
-              elit. Nam consectetur lacus sit
-              amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere.
-              Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique
-              elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id
-              quam.</p>
-      </multiline>
-  </div>
-</td>
-</tr>
-`;
+
+
+const readmorelink = readTemplate('readmorelink');
+const readmore = readTemplate('readmoretr').replace("##readmorelink##",readmorelink);
+const hr = readTemplate('hr');
+const wrapper = readTemplate('wrapper').replace("{{hr}}",hr);
+const wrapperNoLine = readTemplate('wrapper').replace("{{hr}}","");
+const mtwrapper = readTemplate('emptywrapper');
+const emptyWrapper = mtwrapper.replace("{{hr}}",hr);
+const category = readTemplate('category');
+const headline = readTemplate('headline');
+const featureheadline = left(readTemplate('featuredheadline'));
+const storyimg = readTemplate('storyimg');
+const img2col = readTemplate('img2col');
+const storycopy = readTemplate('storycopy');
+const featuredcopy =readTemplate('featuredcopy');
+const twocolumnstory = readTemplate('twocolumnstory'); 
+const tennewsicon = readTemplate('tennewsicon');
+const text = left(readTemplate('text'));
+
 // specific templates
-const Preheader = `
-<div style="display:none;">
-  <singleline>Pre-header Text</singleline>
-</div>
-`;
-const viewonline = left(`
-<div>
-  <singleline>
-      <webversion><span class="preheader">View in browser</span></webversion>
-  </singleline>
-</div>
-`);
-const header = `
-<tr>
-  <th class="center"> <a editable="true"
-          href="https://indaily.com.au"> <img editable="true"
-              alt="InDaily - Adelaide Independent News" border="0"
-              src="images/indaily_logo_notagline.png"
-              width="250" /> </a>
-  </th>
-</tr>
-<tr>
-  <th class="fl center " valign="top">
-      <h1 class="todaysheadlines">Today's Headlines</h1>
-  </th>
-</tr>
+const preheader = left(readTemplate('preheader'));
+const viewonline = left(readTemplate('viewonline'));
+const header = readTemplate('header');
+const banner = readTemplate('banner');
+const midboard = centre(readTemplate('midboard'));
+const oldmidboard = readTemplate('oldmidboard');
+const topstories = left(readTemplate('topstories'));
+const breaking = left(readTemplate('breaking'));
+const exclusive = left(readTemplate('exclusive'));
+const mrec = centre(readTemplate('mrec'));
+const twocolumn = readTemplate('twocolumn');
+const fullwidthheading = readTemplate('fullwidthheading');
+const presspatron = centre(readTemplate('presspatron'));
+const showcase = centre(readTemplate('showcase'));
+const showcaseend = centre(readTemplate('showcaseend'));
+const inreview = centre(readTemplate('inreview'));
+const imageblock = centre(readTemplate('imageblock'));
 
-`;
-const banner = `
-  <tr>
-      <td class="center" align="center" style="padding-bottom:20px;">
-          <h9>
-  <currentday>
-      <currentmonthname>, <currentyear> <singleline></singleline>
-          </h9>
-
-      </td>
-  </tr>
-`;
-const midboard = centre(`
-<table border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:728px;" width="90">
-  <tr>
-      <td class="full_lb"> <a href="" style="text-decoration:none;">
-              <p class="advertisement">Advertisement</p><img editable="true" alt="Leaderboard" border="0" src="images/mid-board-placeholder.jpg" width="728" />
-          </a> </td>
-  </tr>
-</table>
-`);
-const Topstories = `
-<tr>
-  <td align="left" >
-  <h2>
-      <a class="w100pc mob_only_inline_block"
-          href="http://indaily.com.au">
-          <singleline>Section Block (eg: TOP STORIES)</singleline>
-      </a>
-  </h2>
-  </td>
-</tr>
-`;
-const breaking = left(`
-<img alt="BREAKING:" border="0" class="h14_w14"
-            src="images/breaking.gif"  width="15"
-            valign="top" /> <span class="category" 
-            >
-              <singleline>BREAKING</singleline>
-            </span>
-`);
-const exclusive = left(`
-<img alt="EXCLUSIVE:" border="0" class="h14_w14 "
-            src="images/exclusive.gif"  width="15"
-            valign="top" /> <span class="category" 
-            >
-              <singleline>EXCLUSIVE</singleline>
-            </span>
-`);
-const mrec = centre(`
-<table border="0" cellpadding="0" align="center" cellspacing="0" width="300" style="width:300px;padding-bottom:10px;">
-  <tr>
-      <td> <a href="" >
-              <p class="advertisment">Advertisement</p><img
-                  editable="true" alt="Advertisement" border="0"
-                  src="images/mrec-placeholder.jpg" width="300" align="center" />
-          </a>
-          <p>&nbsp;</p> </td>
-  </tr>
-</table>
-`);
-const twocolumn = `
-<tr>
-  <td >
-      <table class="presentation">
-          <tr>
-              <td class="block evenleft" style="padding:0 58px 0 0;" valign="top">
-                  <table width="242" class="">
-                  {{image}}
-                  {{category}}
-                  {{headline}}
-                      <tr><td>
-                      <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
-                          </td></tr>
-                  </table>
-
-              </td>
-              <td class="block evenright" align="right" style="padding: 0 0 0 58px;" valign="top">
-                  <table width="242" class="hugright">
-                      {{image}}
-                      {{category}}
-                      {{headline}}
-                      <tr><td>
-                      <div class="multiline-style"><multiline>Story copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur lacus sit amet elit scelerisque iaculis. Praesent non quam quis turpis mollis posuere. Maecenas odio lectus, lobortis ut nunc in, ultrices mollis erat. Donec nec tristique elit, non porta arcu. Maecenas lacus ex, vehicula nec finibus sed, tincidunt id quam.</multiline></div>
-                          </td></tr>
-                  </table>
-              </td>
-          </tr>
-      </table>
-  </td>
-</tr>
-`;
-const fullwidthheading = `
-<div >
-  <h1 class="font_size_24 line_height_28"
-      >
-      <a href="" >
-          <singleline>Full Width Heading</singleline>
-      </a>
-  </h1>
-</div>
-`;
-const presspatron = centre(`
-<table style="" class="presspatron">
-<tr valign="top">
-  <td align="center" stlye="padding:10px">
-      <div style="padding:10px;">
-          <h1>
-              <a href="https://indaily.com.au/support-indaily/?utm_source=EDM%202020&utm_medium=Press%20Patron&utm_campaign=block" >
-                  <singleline>We need you to help keep journalism independent and real</singleline>
-              </a>
-          </h1>
-          <img editable="true" src="images/david-eccles.png" width="100" align="left">
-          <p class="font_size_15 line_height_20"><div class="multiline-style">
-              <multiline>A trusted source is one key to uncovering important stories. Help us remain
-                  your trusted source of information by donating to InDaily.</multiline></div>
-          </p>
-      </div>
-  </td>
-</tr>
-<tr class="button_alignment--align_button_center " >
-  <td align="center" class="center" style="padding:1px 5px 10px 5px;">
-      <table border="0" align="center" cellpadding="0" cellspacing="0" class="button">
-          <tr>
-              <td style="font-size: 12px; background-color: #000000; padding-top: 8px; padding-bottom: 8px; padding-left: 10px;  padding-right: 10px; border-radius: 5px; display: inline-block; color: #ffffff; font-weight: normal; letter-spacing: 1px; font-family: 'Helvetica', Arial, sans-serif; margin-top: 0px; color:#ffffff;">
-                  <a href="https://indaily.com.au/support-indaily/?utm_source=EDM%202020&utm_medium=Press%20Patron&utm_campaign=block" style="color:#ffffff; text-decoration:none; font-weight: bold;">
-                      <singleline>Donate here</singleline>
-                  </a>
-              </td>
-          </tr>
-      </table>
-  </td>
-</tr>
-</table>
-`);
-const showcase = centre(`
-
-                <a href="https://solsticemedia.com.au/regional-showcase/"
-                  ><img editable="true" src="images/rs2.jpg" class="homes"
-                    width="600" border="0" alt="South Australian Regional Showcase" /></a>
-`);
-const showcaseend = centre(`
-<img editable="true" src="images/end_rs.jpg" class="homes" width="600" border="0" alt="" />
-`);
-const inreview = centre(`
-          <img editable="true" src="images/inreview-banner-1.123338.jpg" class="homes" width="600"
-              border="0" alt="InReview" />
-`);
-const imageblock = centre(`
-          <img editable="true" src="images/image_block.png" class="homes" width="600"
-              border="0" alt="" />
-`);
+const templates = [
+  'readmorelink', 'readmoretr', 'hr', 'wrapper', 'emptywrapper', 'category', 'headline', 'featuredheadline', 'storyimg', 'img2col', 'storycopy', 'featuredcopy', 'twocolumnstory', 'tennewsicon', 'text', 'preheader', 'viewonline', 'header', 'banner', 'midboard', 'oldmidboard', 'topstories', 'breaking', 'exclusive', 'mrec', 'twocolumn', 'fullwidthheading', 'presspatron', 'showcase', 'showcaseend', 'inreview', 'imageblock'
+]
 
 
 const buildit = () => {
+  var folder=source.folder;
   let template = "";
-  template += buildTemplate(left(Preheader),'Preheader');
+  template += buildTemplate(preheader,'Preheader');
   template += buildTemplate(viewonline,'View Online');
   template += buildTemplate(header,'HEADER');
   template += buildTemplate(banner,'Banner', wrapper);
-  template += buildTemplate(midboard,'Advertisement (mid-board)');
-  template += buildTemplate(Topstories,"Section Block",wrapper);
-  template += buildTemplate(storyimg+category+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
-  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story"})+featuredcopy+readmore,"Feature Story", wrapper);
-  template += buildTemplate(storyimg+createHTML(featureheadline,{content:"Feature story no read more"})+featuredcopy+readmore,"Feature story no read more", wrapper);
-  template += buildTemplate(category+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (2 column)",category:category,icon:""}),"1 Story (2 column)", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"1 Story (No Category)",category:"",icon:""}),"1 Story (No Category)", wrapper);
-  template += buildTemplate(createHTML(twocolumnstory,{headline:"Video Story with Icon",category:"",icon:tennewsicon}),"Video Story with Icon", wrapper);
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"}),category:"",image:img2col,icon:""}),"2 column", wrapper);
+  template += buildTemplate(oldmidboard,'Advertisement (mid-board)');
+  template += buildTemplate(topstories,"Section Block",wrapper);
+  template += buildTemplate(left(storyimg)+left(category)+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
+  template += buildTemplate(left(storyimg)+createHTML(featureheadline,{content:"Feature Story"})+featuredcopy+readmore,"Feature Story", wrapper);
+  template += buildTemplate(left(category)+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image", wrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"1 Story (2 column)"},"{{content}}"),category:category,icon:""}),"1 Story (2 column)", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"1 Story (No Category)"},"{{content}}"),category:"",icon:""}),"1 Story (No Category)", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"Video Story with Icon"},"{{content}}"),category:"",icon:tennewsicon}),"Video Story with Icon", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"},"{{content}}"),category:"",image:img2col,icon:""}),"2 column", emptyWrapper);
   template += buildTemplate(mrec,"Advertisement (mrec)");
-  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", wrapper);
-  template += buildTemplate(category,"Category");
+  template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", emptyWrapper);
+  template += buildTemplate(createHTML(twocolumn.replace('##readmorelink##',''),{headline:createHTML(headline,{content:"2 Column w/ Category No Readmore"}),category:category,image:img2col,icon:""}),"2 Column w/ Category No Readmore", emptyWrapper);
+  template += buildTemplate(left(category),"Category");
   template += buildTemplate(text,"Text");
   template += buildTemplate(breaking,"BREAKING");
   template += buildTemplate(exclusive,"EXCLUSIVE");
-  template += buildTemplate(storyimg+exclusive+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+featuredcopy+readmore,"EXCLUSIVE Feature Story", wrapper);
-  template += buildTemplate(storyimg+breaking+createHTML(featureheadline,{content:"BREAKING Feature Story"})+featuredcopy+readmore,"BREAKING Feature Story", wrapper);
+  template += buildTemplate(left(storyimg)+left(exclusive)+createHTML(featureheadline,{content:"EXCLUSIVE Feature Story"})+featuredcopy+readmore,"EXCLUSIVE Feature Story", wrapper);
+  template += buildTemplate(left(storyimg)+left(breaking)+createHTML(featureheadline,{content:"BREAKING Feature Story"})+featuredcopy+readmore,"BREAKING Feature Story", wrapper);
   template += buildTemplate(left(fullwidthheading),"Full Width Heading", wrapper);
   template += buildTemplate(presspatron,"Press Patron");
   template += buildTemplate(showcase,"Regional Showcase");
@@ -437,26 +163,35 @@ const zipit = () =>
 
 const htmldev = () =>
   gulp
-    .src(["src/index.html"])
+    .src(['templates/'+ source.folder+'/index.html'])
     .pipe(replace("{{repeater}}", buildit()))
     .pipe(inlinesource({ rootpath: path.resolve("dist") }))
     .pipe(gulp.dest("dist"));
   
 const demo = () =>
   gulp
-    .src(["src/index.html"])
+    .src(['templates/'+ source.folder+'/index.html'])
     .pipe(replace("{{repeater}}", buildit()))
     .pipe(replace("<currentday>", new Date().getDate()))
     .pipe(replace("<currentmonthname>", currentDate.toLocaleString('default', { month: 'long' })))
     .pipe(replace("<currentyear>", currentDate.toLocaleString('default', { year: 'numeric' })))
     .pipe(rename("demo.html"))
+    .pipe(formatHTML())
     .pipe(inlinesource({ rootpath: path.resolve("dist") }))
     .pipe(gulp.dest("dist"));
 
+    const oldversion = () =>
+    gulp
+      .src(['templates/'+ source.folder+"/oldversion.html"])
+      .pipe(rename("oldversion.html"))
+      .pipe(formatHTML())
+      .pipe(inlinesource({ rootpath: path.resolve("dist") }))
+      .pipe(gulp.dest("dist"));
+  
 
 const cssdev = () =>
   gulp
-    .src(["src/styles/*.css"])
+    .src(["dist/styles/*.css"])
     .pipe(
       cleanCSS({ debug: true, level: 2 }, (details) => {
         console.log(`${details.name}: ${details.stats.originalSize}`);
@@ -465,14 +200,14 @@ const cssdev = () =>
     )
     .pipe(
       purgecss({
-        content: ["src/**/*.html"],
+        content: ["templates/"+source.folder+"/**/*.html"],
       })
     )
     .pipe(gulp.dest("dist/css"));
 
 const sassdev = () =>
        gulp
-      .src(sassFiles)
+      .src('templates/'+source.folder+'/sass/**/*.scss')
           .pipe(sourcemaps.init()) // Lets us see the CSS source code in the inspector
           .pipe(sass()) // Transpiles SCSS to CSS
     .pipe(gulp.dest('dist/css')); // Put everything in the build directory
@@ -480,7 +215,7 @@ const sassdev = () =>
 
     const sassprod = () =>
     gulp
-   .src(sassFiles)
+   .src('./templates/'+source.folder+'/sass/**/*.scss')
        .pipe(sourcemaps.init()) // Lets us see the CSS source code in the inspector
        .pipe(sass()) // Transpiles SCSS to CSS
        .pipe(postcss([autoprefixer(), cssnano()])) // Add browser prefixes and minify  
@@ -488,13 +223,16 @@ const sassdev = () =>
  .pipe(gulp.dest('dist/css')); // Put everything in the build directory
 
 
-
+const compare = () =>
+  gulp
+    .src(["src/compare.html"])
+    .pipe(gulp.dest("dist"));
 
 
 const html = () =>
   gulp
-    .src(["src/index.html"])
-    .pipe(replace("{{repeater}}", buildit()))
+  .src(['templates/'+ source.folder+'/index.html'])
+    .pipe(replace("{{repeater}}", buildit(source)))
     .pipe(
       htmlmin({
         collapseWhitespace: true,
@@ -508,8 +246,8 @@ const html = () =>
 
 const css = () =>
   gulp
-    .src("src/styles/*.css")
-    .pipe(
+  .src(["dist/styles/*.css"])
+  .pipe(
       cleanCSS({ debug: true, level: 2 }, (details) => {
         console.log(`${details.name}: ${details.stats.originalSize}`);
         console.log(`${details.name}: ${details.stats.minifiedSize}`);
@@ -517,20 +255,21 @@ const css = () =>
     )
     .pipe(
       purgecss({
-        content: ["src/**/*.html"],
+        content: ["templates/"+source.folder+"/**/*.html"],
       })
     )
     .pipe(gulp.dest("dist/styles"));
 
-const purge = () => del(["dist/styles"]);
+const purge = () => del(["dist/styles","dist/css"]);
 
-const assets = () => gulp.src("src/images/*").pipe(gulp.dest("dist/images"));
+const assets = () => gulp.src("templates/"+source.folder+"/images/*").pipe(gulp.dest("dist/images"));
 
 const dev = () =>
   gulp.watch(
-    ["src/**/*", "version.txt"],
+    ["src/**/*", "version.txt","templates/**/*"],
     { ignoreInitial: false },
-    gulp.series(assets, sassdev, demo, htmldev, zipit)
+    gulp.series(assets,sassdev,demo, htmldev, zipit, purge)
+    // gulp.series(assets(indailylunchtime), sassdev(indailylunchtime), demo(indailylunchtime), htmldev(indailylunchtime), oldversion(indailylunchtime), zipit)
   );
 
 exports.html = html;
@@ -539,4 +278,4 @@ exports.dev = dev;
 exports.sassprod = sassprod;
 exports.demo = demo;
 exports.zipit = zipit;
-exports.default = gulp.series(assets,sassprod, css, html, demo, zipit);
+exports.default = gulp.series(assets,sassprod, css, html, demo, oldversion, zipit);
