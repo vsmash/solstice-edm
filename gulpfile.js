@@ -100,6 +100,7 @@ const text = left(readTemplate('text'));
 const preheader = left(readTemplate('preheader'));
 const viewonline = left(readTemplate('viewonline'));
 const header = readTemplate('header');
+const customheader = readTemplate('custom_header');
 const banner = readTemplate('banner');
 const midboard = centre(readTemplate('midboard'));
 const oldmidboard = readTemplate('oldmidboard');
@@ -126,8 +127,9 @@ const buildit = () => {
   template += buildTemplate(preheader,'Preheader');
   template += buildTemplate(viewonline,'View Online');
   template += buildTemplate(header,'HEADER');
+  template += buildTemplate(customheader,'CUSTOM HEADER');
   template += buildTemplate(banner,'Banner', wrapper);
-  template += buildTemplate(oldmidboard,'Advertisement (mid-board)');
+  template += buildTemplate(midboard,'Advertisement (mid-board)',wrapper);
   template += buildTemplate(topstories,"Section Block",wrapper);
   template += buildTemplate(left(storyimg)+left(category)+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
   template += buildTemplate(left(storyimg)+createHTML(featureheadline,{content:"Feature Story"})+featuredcopy+readmore,"Feature Story", wrapper);
@@ -136,7 +138,7 @@ const buildit = () => {
   template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"1 Story (No Category)"},"{{content}}"),category:"",icon:""}),"1 Story (No Category)", emptyWrapper);
   template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"Video Story with Icon"},"{{content}}"),category:"",icon:tennewsicon}),"Video Story with Icon", emptyWrapper);
   template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 column"},"{{content}}"),category:"",image:img2col,icon:""}),"2 column", emptyWrapper);
-  template += buildTemplate(mrec,"Advertisement (mrec)");
+  template += buildTemplate(mrec,"Advertisement (mrec)",wrapper);
   template += buildTemplate(createHTML(twocolumn,{headline:createHTML(headline,{content:"2 Column w/ Category"}),category:category,image:img2col,icon:""}),"2 Column w/ Category", emptyWrapper);
   template += buildTemplate(createHTML(twocolumn.replace('##readmorelink##',''),{headline:createHTML(headline,{content:"2 Column w/ Category No Readmore"}),category:category,image:img2col,icon:""}),"2 Column w/ Category No Readmore", emptyWrapper);
   template += buildTemplate(left(category),"Category");

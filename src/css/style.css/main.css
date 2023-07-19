@@ -255,6 +255,7 @@ table{
         & img{
             width:100%;
             &.tnf{
+                max-width:99px !important;
                 width:100px;
             }
         }

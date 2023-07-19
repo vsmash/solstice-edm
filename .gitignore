@@ -1,3 +1,5 @@
 .idea
 *.pdf
 node_modules
+dist/*
+dist/demo.html

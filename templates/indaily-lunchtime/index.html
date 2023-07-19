@@ -34,22 +34,12 @@ div {margin:0 !important;}
         <table role="presentation" style="width:100%;border:0;border-spacing:0;">
             <tr>
                 <td align="center">
-                    <!--[if mso]> 
-                    <table role="presentation" align="center" style="width:660px;"> 
-                    <tr> 
-                    <td style="padding:20px 0;"> 
-                    <![endif]-->
-                    <div class="outer" style="width:96%;max-width:600px;margin:20px auto;">
-                        <repeater>
-                            {{repeater}}
-                        </repeater>
-                        <!-- </div> -->
-                        <!--[if mso]>  
-                    </td> 
-                    </tr> 
-                    </table> 
-                    <![endif]-->
-                        <table class="row" style="background-color:black;">
+
+                    <repeater>
+                        {{repeater}}
+                    </repeater>
+
+                    <table class="row" style="background-color:black;">
                             <tr>
                                 <td>
                                     <table class="wrapper" style="background-color:black;">
@@ -102,10 +92,10 @@ div {margin:0 !important;}
                                                 <p class="center footertext">
                                                     <a href="" class="footerlink">Privacy</a>
 
-                                                    | <unsubscribe>Unsubscribe</unsubscribe>
+                                                    | <unsubscribe style="color:#fff;" class="footerlink">Unsubscribe</unsubscribe>
                                                 </p>
                                                 <p class="center footertext" style="padding:10px;color:#fff;">
-                                                    &copy; 2023 The New Daily. All rights reserved</p>
+                                                    &copy; 2023 InDaily. All rights reserved</p>
 
                                             </td>
                                         </tr>
