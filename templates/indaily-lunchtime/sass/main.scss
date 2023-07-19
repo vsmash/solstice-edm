@@ -15,7 +15,7 @@
     font-weight:bold;
     line-height: 20px; 
     vertical-align: middle; 
-    letter-spacing: 3.6px;
+    letter-spacing: 1px;
 }
 
 a[x-apple-data-detectors] {
@@ -43,14 +43,15 @@ td {
     margin: 0px;
 }
 .featuredcopy{
-    font-size:20px;
-    line-height:24px;
+    font-size:16px;
+    line-height:20px;
 }
 img {
     border: none;
     display: inline-block;
     color: #000000;
     max-width:100%;
+    height:auto !important;
 }
 .button{
     width:fit-content;
@@ -89,8 +90,13 @@ h2{
 h9{
     font-size:24px;padding-bottom:15px;
 }
+img .advertisement{
+    max-width:100% !important;
+}
+
 .advertisement{
     font-size: 9px; color: #000000;
+    margin:0;
 }
 
 
@@ -122,11 +128,12 @@ h9{
 .preheader{
     font-family: $preheadertext;
     font-size:12px;
-    color:#000;
+    color:#000 !important;
     & a {
-        color:#000;
+        color:#000 !important;
         text-decoration:none;
     }
+    margin-bottom:25px;
 }
 
 .footertext{
@@ -236,6 +243,10 @@ table{
         width:100%;
         & img{
             width:100%;
+            &.tnf{
+                width:100px;
+                max-width: 100px !important;
+            }
         }
     }
     .leftcol, .rightcol{
@@ -243,6 +254,7 @@ table{
             width:100%;
             &.tnf{
                 width:100px;
+                max-width: 100px !important;
             }
         }
         
@@ -314,6 +326,9 @@ table{
     }
     .two-col img {
       width: 100% !important;
+      &.tnf{
+        width:100px;
+        max-width: 100px !important;}
     }
   }
   @media screen and (min-width: 461px) {
@@ -329,4 +344,20 @@ table{
     .sidebar .large {
       max-width: 84% !important;
     }
+    .sixhundred{
+        width:100%;
+    }
   }
+
+  .storycopy{
+        font-size:16px;
+        line-height:20px;
+  }
+
+  .sixhundred{
+      width:600px;
+  }
+hr{
+    height:1px;color:#d2d7df;background-color:#d2d7df;border:none;
+}
+.spacer{line-height:26px;mso-line-height-rule:exactly;padding:0 10px;}
