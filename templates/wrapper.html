@@ -1,6 +1,19 @@
 <layout label="{{itemlabel}}">
-  <table role="presentation" style="width:100%;border:0;border-spacing:0;" width="100%">
-    {{content}}
-  </table>
-  {{hr}}
-</layout>
+                    <!--[if mso]> 
+                    <table role="presentation" align="center" style="width:600px;max-width:600px;" class="sixhundred"> 
+                    <tr> 
+                    <td style="padding:10px 0;"> 
+                    <![endif]-->
+                    <div class="outer" style="width:96%;max-width:600px;margin:10px auto;">
+                        <table role="presentation" style="width:100%;border:0;border-spacing:0;max-width:600px;" class="sixhundred"  width="100%">
+                          {{content}}
+                        </table>
+                        {{hr}}
+                    </div>
+                    <!--[if mso]>  
+                  </td> 
+                  </tr> 
+                  </table> 
+                  <![endif]-->
+                </layout>
+
