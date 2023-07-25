@@ -132,7 +132,7 @@ const buildit = () => {
   template += buildTemplate(midboard,'Advertisement (mid-board)',wrapper);
   template += buildTemplate(topstories,"Section Block",wrapper);
   template += buildTemplate(left(storyimg)+left(category)+createHTML(featureheadline,{content:"Feature Story w/ Category"})+featuredcopy+readmore,"Feature Story w/ Category", wrapper);
-  template += buildTemplate(left(storyimg)+createHTML(featureheadline,{content:"Feature Story"})+featuredcopy+readmore,"Feature Story", wrapper);
+  template += buildTemplate(left(storyimg)+createHTML(featureheadline,{content:"Feature story"})+featuredcopy+readmore,"Feature story", wrapper);
   template += buildTemplate(left(category)+createHTML(featureheadline,{content:"Feature Story no image"})+featuredcopy+readmore,"Feature Story no image", wrapper);
   template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"1 Story (2 column)"},"{{content}}"),category:category,icon:""}),"1 Story (2 column)", emptyWrapper);
   template += buildTemplate(createHTML(twocolumnstory,{headline:createHTML(headline,{content:"1 Story (No Category)"},"{{content}}"),category:"",icon:""}),"1 Story (No Category)", emptyWrapper);
